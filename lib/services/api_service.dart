@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import '../config.dart';
 
 class ApiService {
-  static final String? _baseUrl = dotenv.env['http://127.0.0.1:8000/api/swagger/'];
+  static final String _baseUrl = Config.apiBaseUrl;
 
   static Future<Map<String, dynamic>> login(
       String email, String password) async {
@@ -31,6 +31,4 @@ class ApiService {
       throw Exception('Failed to load leaderboard');
     }
   }
-
-// Agrega más métodos según los endpoints de tu backend
 }
